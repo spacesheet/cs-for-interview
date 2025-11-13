@@ -2,6 +2,8 @@ Single-phase 2-wire
 
 Three-phase 4-wire
 
+image:resources/센서수집기_결선.png[센서수집기 결선]
+
 
 4선식 + Master-Slave 구조와 "단계 전압 차단" 원리
 당신이 언급한 이 구조는 전형적인 스마트 파워 제어 시스템의 모델이에요.

@@ -33,16 +33,19 @@ Java Thread ↔ OS Native Thread (1:1 매핑)
 -> DB 작업 필요할 때만 커넥션 빌림 -> SQL 실행 (Network I/O) -> 커넥션 즉시 반납 (다른 스레드가 재사용)
 -> 나머지 로직 실행 (톰캣 스레드 계속 사용) -> 응답 반환 후 톰캣 스레드 반납
 
+[%hardbreaks]
 톰캣 스레드 (OS Native Thread):
 - CPU 스케줄링 대상
 - Context Switching 대상
 - 커널이 직접 관리
 - /proc/[pid]/task/에서 확인 가능
 
+[%hardbreaks]
 톰캣 스레드 (OS Thread):
 - 너무 많으면: Context Switching 오버헤드 ↑
 - 권장: CPU 코어 수 × 20
 
+[%hardbreaks]
 DB 커넥션 (Socket I/O):
 - 너무 많으면: DB 서버 부하 ↑
 - 권장: 10~50개로 충분

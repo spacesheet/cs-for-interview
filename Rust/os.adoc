@@ -19,3 +19,11 @@ ex) ocr, 모니터 동시성 제어 매니징
 
 비동기 블로킹
 ex) 스트리밍, 화면 캡처링
+
+
+thread::spawn으로 스레드 생성
+join()으로 스레드 완료 대기
+move 클로저로 소유권 이동
+Arc(Atomic Reference Counting)로 여러 스레드 간 데이터 공유
+Mutex로 동시 접근 제어
+mpsc::channel로 스레드 간 메시지 전달

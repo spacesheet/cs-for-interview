@@ -1,0 +1,25 @@
+file I/O
+
+console I/O
+
+device I/O
+
+## 컴퓨터 아키텍처 관점의 I/O 분류
+
+I/O 장치 분류 (컴퓨터 아키텍처)
+1. Block Device (블록 단위)
+- HDD/SSD (File I/O)
+- CD/DVD
+특징: 랜덤 액세스 가능
+
+2. Character Device (문자 단위)
+- 키보드 (Console I/O)
+- 마우스 (Device I/O)
+- 시리얼 포트
+특징: 순차적 읽기/쓰기
+
+3. Network Device
+- NIC (Network I/O)
+- WiFi 카드
+특징: 패킷 기반 통신
+

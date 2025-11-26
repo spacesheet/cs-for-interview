@@ -1,0 +1,14 @@
+network I/O
+
+DB 커넥션: 데이터베이스 연결 통로
+
+[%hardbreaks]
+DB 커넥션 = TCP/IP 네트워크 소켓
+본질: TCP/IP 네트워크 소켓 (Network I/O)
+구현: OS 시스템 콜 (socket, send, recv)
+하드웨어: Network Card (NIC)
+관리: Connection Pool (HikariCP)
+관계: 톰캣 스레드가 필요할 때만 빌려 씀
+개수: 톰캣 스레드보다 훨씬 적어도 됨
+이유: DB 작업은 짧고, 재사용 빠름
+목적: 데이터베이스와 통신

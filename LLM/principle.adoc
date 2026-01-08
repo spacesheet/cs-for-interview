@@ -67,3 +67,14 @@ Attention은,
 
 LLM은 통계적 패턴 매칭 + 학습된 구조적 변환 조합
 
+
+=======to do=======
+?.계층적 구조 변환까지 일어남. Transformer의 layer가 깊어질수록 추상화 수준이 올라가는 게 핵심.
+?.일종의 메타 학습이 파라미터에 인코딩되어 있다는 증거.
+?.못하는 것: 긴 추론, 정확한 계산, 희귀 조합
+	∙	Greedy decoding: 각 토큰마다 locally optimal만 봄
+	∙	Limited lookahead: 미래 결과 역산 못함
+	∙	No backtracking: 중간에 틀려도 수정 못함
+?.“단순 암기”라면 데이터 늘려도 못 본 건 못 풀어야 하는데, 실제론 일반화 능력도 같이 증가. 이게 통계적 압축의 마법.
+?.GPU tensor core, memory hierarchy
+

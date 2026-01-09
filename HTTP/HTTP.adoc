@@ -38,3 +38,24 @@
 === 웹소켓: 양방향 실시간 통신 프로토콜, 연결 유지
 === - HTTP와 달리 연결 유지 (Stateful)
 === - 실시간 양방향 통신 (채팅, 알림 등)
+
+
+• 200 OK - Request was successful 
+• 201 Created - Resource was successfully created 
+• 202 Accepted - Request accepted, processing pending 
+• 204 No Content - Request successful, no response body
+• 301 Moved Permanently - Resource permanently relocated 
+• 302 Found - Resource temporarily relocated 
+• 304 Not Modified - Cached version can be used
+• 400 Bad Request - Invalid request from client 
+• 401 Unauthorized - Authentication required or failed 
+• 403 Forbidden - Access denied 
+• 404 Not Found - Resource does not exist 
+• 405 Method Not Allowed - HTTP method not supported 
+• 409 Conflict - Request conflicts with current state 
+• 429 Too Many Requests - Rate limit exceeded
+• 500 Internal Server Error - Server encountered an error 
+• 501 Not Implemented - Feature not supported 
+• 502 Bad Gateway - Invalid response from upstream server 
+• 503 Service Unavailable - Server temporarily unavailable 
+• 504 Gateway Timeout - Upstream server timed out

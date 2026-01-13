@@ -31,4 +31,219 @@
 |  private, protected, public |  O   |
 |  `readonly`, `?` (optional) |  X   |
 
+---
 
+== TypeScript의 null 안정성(null safety)
+
+## 1. null 안정성이 왜 필요한가?
+
+### 1) JavaScript의 고질적인 문제
+
+```js
+const user = null;
+console.log(user.name); // 런타임 에러
+```
+
+* 실행 전에는 에러를 알 수 없음
+* 서비스 중 장애로 이어질 수 있음
+
+=> TypeScript는 컴파일 단계에서 이 문제를 막기 위해 null 안정성을 제공합니다.
+
+---
+
+## 2. strictNullChecks 옵션 (핵심)
+
+### 1) 의미
+
+```json
+{
+  "compilerOptions": {
+    "strictNullChecks": true
+  }
+}
+```
+
+=> 이 옵션이 TypeScript null 안정성의 핵심
+
+---
+
+### 2) 옵션 OFF (불안전)
+
+```ts
+let name: string;
+name = null; // 허용됨 (위험)
+```
+
+* JavaScript와 거의 동일
+* null 관련 버그 많음
+
+---
+
+### 3) 옵션 ON (안전)
+
+```ts
+let name: string;
+name = null; // 컴파일 에러
+```
+
+=> null을 명시적으로 다루도록 강제
+
+---
+
+## 3. null / undefined를 다루는 기본 방법
+
+### 1) Union Type 사용
+
+```ts
+let name: string | null;
+
+name = null;   // OK
+name = "Kim";  // OK
+```
+
+=> “이 값은 null일 수도 있다”를 타입으로 표현
+
+---
+
+### 2) 함수 반환값 예시
+
+```ts
+function findUser(): User | null {
+  return null;
+}
+```
+
+! 호출하는 쪽에서 반드시 null 처리 필요
+
+---
+
+## 4. null 체크 방법 (실무에서 가장 많이 씀)
+
+### 1) if 체크 (가장 기본)
+
+```ts
+if (user !== null) {
+  console.log(user.name);
+}
+```
+
+=> TypeScript는 이 안에서 `user`가 null이 아님을 보장
+
+---
+
+### 2) Optional Chaining (`?.`)
+
+```ts
+console.log(user?.name);
+```
+
+* user가 null/undefined면
+* 에러 없이 `undefined` 반환
+
+=> 안전 + 코드 간결
+
+---
+
+### 3) Nullish Coalescing (`??`)
+
+```ts
+const name = user?.name ?? "Guest";
+```
+
+* 값이 `null` 또는 `undefined`일 때만 기본값 사용
+* `||` 보다 안전
+
+---
+
+### 4) Non-null Assertion (`!`)
+
+```ts
+console.log(user!.name);
+```
+
+* “절대 null 아님”이라고 컴파일러에게 강제 선언
+* 런타임 에러 가능
+
+! 정말 확신할 때만 사용
+
+---
+
+## 5. undefined vs null (중요 차이)
+[%hardbreaks]
+[literal]
+| 구분     | undefined   | null        |
+| ------- | ----------- | ----------- |
+| 의미     | 값이 아직 없음  | 의도적으로 없음 |
+| 자동 발생 | O           |  X          |
+| 추천 용도 | 선택적 값      | 명시적 빈 값  |
+
+### 예시
+
+```ts
+interface User {
+  name?: string; // undefined 가능
+}
+```
+
+---
+
+## 6. Java와 비교하면?
+[%hardbreaks]
+[literal]
+| 항목       | Java         | TypeScript |
+| --------- | ------------ | ---------- |
+| null 체크  | 런타임         | 컴파일 타임   |
+| Optional  | Optional<T>  | Union + ?. |
+| 강제성      | 낮음          | 높음        |
+
+=> TypeScript는 컴파일러가 null 실수를 미리 잡아줌
+
+---
+
+## 7. 주니어가 자주 하는 실수
+
+### X 1) 모든 곳에 `!` 사용
+
+```ts
+user!.profile!.name!
+```
+
+=> null 안정성 포기한 것과 동일
+
+---
+
+### X 2) null 가능성 무시
+
+```ts
+function getName(user: User | null) {
+  return user.name; // 에러
+}
+```
+
+=> 반드시 처리해야 함
+
+---
+
+## 8. 실무에서 권장 패턴
+
+### 1) strict 모드 항상 ON
+
+```json
+"strict": true
+```
+
+---
+
+### 2) 반환값에 null 가능성 명확히 표현
+
+```ts
+function findUser(): User | null {}
+```
+
+---
+
+### 3) Optional Chaining + ?? 적극 사용
+
+```ts
+const age = user?.age ?? 0;
+```

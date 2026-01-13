@@ -200,7 +200,7 @@ interface User {
 
 ---
 
-## 7. 주니어가 자주 하는 실수
+## 7. 자주 하는 실수
 
 ### X 1) 모든 곳에 `!` 사용
 
@@ -247,3 +247,4 @@ function findUser(): User | null {}
 ```ts
 const age = user?.age ?? 0;
 ```
+

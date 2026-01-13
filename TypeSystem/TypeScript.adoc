@@ -1,3 +1,6 @@
+
+== 구조적 타입: 필드·메서드 집합이 슈퍼타입 역할
+
 == 타입 관련 키워드
 [%hardbreaks]
 [literal]
@@ -27,3 +30,4 @@
 |  -------------------------- | ---- |
 |  private, protected, public |  O   |
 |  `readonly`, `?` (optional) |  X   |
+

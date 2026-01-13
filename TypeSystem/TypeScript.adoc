@@ -1,0 +1,29 @@
+== 타입 관련 키워드
+[%hardbreaks]
+[literal]
+| 키워드        | 설명                 |
+| ----------- | ------------------- |
+| `type`      | 타입 별칭 정의          |
+| `interface` | 구조적 타입 정의        |
+| `enum`      | 열거형 (JS 코드로 변환됨) |
+| `unknown`   | 안전한 any            |
+| `never`     | 절대 발생하지 않는 타입   |
+| `readonly`  | 불변 속성              |
+
+== 타입 연산 키워드
+[%hardbreaks]
+[literal]
+| 키워드     | 설명             |
+| -------- | --------------- |
+| `keyof`  | 객체 키 유니언      |
+| `typeof` | 값 → 타입 추론     |
+| `in`     | 매핑 타입          |
+| `infer`  | 조건부 타입 내부 추론 |
+
+== 접근 제어 키워드
+[%hardbreaks]
+[literal]
+|  TypeScript                 | Java | 
+|  -------------------------- | ---- |
+|  private, protected, public |  O   |
+|  `readonly`, `?` (optional) |  X   |

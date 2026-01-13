@@ -1,0 +1,10 @@
+[%hardbreaks]
+[literal]
+| 항목        | Spring (MVC)        | Node.js                  | FastAPI               |
+| ---------- | ------------------ | ------------------------- | --------------------- |
+| 기본 실행 모델 | Thread-per-request | Single-thread event loop |  Async event loop     |
+| 병렬성 단위   | OS Thread          | Event loop + Worker      |   Event loop + Process |
+| I/O 처리    | Blocking (기본)      | Non-blocking             |  Non-blocking         |
+| CPU 작업    | Thread 병렬          | Worker Threads           |  별도 Process          |
+| 확장 방식    | Thread Pool         | Cluster / PM2            |  Gunicorn / Uvicorn   |
+| 병목 포인트   | Thread 고갈          | Event loop block         |  GIL / CPU 작업        |

@@ -2,7 +2,7 @@
 [literal]
 | 항목        | Spring MVC         | Spring WebFlux          | Node.js                  | FastAPI               |
 | ---------- | ------------------ | ----------------------- | ------------------------ | --------------------- |
-| 기본 실행 모델 | Thread-per-request | Event loop (Reactor)    | Single-thread event loop | Async event loop      |
+| 기본 실행 모델 | Thread-per-request | Event loop (Reactor)    | Single-thread event loop | Async event loop     |
 | 병렬성 단위   | OS Thread          | Event loop threads      | Event loop + Worker      | Event loop + Process  |
 | I/O 처리    | Blocking           | Non-blocking (Reactive) | Non-blocking             | Non-blocking          |
 | CPU 작업    | Thread 병렬          | Thread Pool (subscribeOn)| Worker Threads          | 별도 Process          |
@@ -10,5 +10,5 @@
 | 병목 포인트   | Thread 고갈         | Event loop block        | Event loop block         | GIL / CPU 작업        |
 | 기본 서버    | Tomcat (Servlet)   | Netty (Non-blocking)    | Built-in (libuv)         | Uvicorn (ASGI)       |
 | 프로그래밍 모델 | Imperative        | Reactive (Mono/Flux)    | Callback/Promise/Async   | Async/Await          |
-| 메모리 사용   | 많음 (Thread 당)    | 적음                     | 적음                      | 중간                  |
-| Context 전환| 많음 (Thread)       | 적음 (Event loop)        | 적음 (Event loop)         | 중간                  |
+| 메모리 사용   | 많음 (Thread 당)    | 적음                     | 적음                       | 중간                  |
+| Context 전환| 많음 (Thread)       | 적음 (Event loop)        | 적음 (Event loop)          | 중간                  |

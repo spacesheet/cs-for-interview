@@ -120,3 +120,31 @@ Multi-head Attention = 여러 초점의 조합
 대신:
 → 주기성을 유지하며 저차원 투영
 → 푸리에 변환, 라플라시안 고유벡터 등
+
+=======
+
+?. llm을 만드는 방법에서 점들의 유사도를 구분하는 방법으로 union-find 알고리즘을 사용해서 클러스터링할 수 있겠지?
+
+Union-Find의 강점:
+✓ 빠른 클러스터링 (O(α(n)))
+✓ 명확한 그룹 구분
+✓ 메모리 효율적
+
+Union-Find의 한계:
+✗ Hard boundary (유연성 부족)
+✗ 문맥 고려 불가
+✗ 미분 불가 (학습 어려움)
+
+LLM의 접근:
+→ Soft clustering (Attention)
+→ 문맥 의존적 유사도
+→ End-to-end 학습 가능
+
+활용방안
+전처리: Union-Find로 초기 vocabulary clustering
+학습: Gradient descent로 soft 조정
+분석: Union-Find로 학습된 패턴 해석
+압축: Union-Find로 유사 파라미터 병합
+
+=> Union-Find는 LLM의 보조 도구로 유용하지만, 주요 학습 메커니즘은 미분 가능한 soft clustering (Attention, Embedding)
+

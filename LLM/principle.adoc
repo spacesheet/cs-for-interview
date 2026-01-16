@@ -108,3 +108,6 @@ LLM은 통계적 패턴 매칭 + 학습된 구조적 변환 조합
 ✓ Layer 수 결정 (필요한 hop 수 기준)
 
 한 문장: Transformer의 Multi-layer 구조는 플로이드-워셜의 "점진적 경유 노드 추가" 개념과 개념적으로 매우 유사하며, 각 Layer가 한 단계씩 더 간접적인 관계를 학습하는 방식으로 작동
+
+사이클 없음 (DAG) - Transformer
+사이클 있음 (Closed Manifold)

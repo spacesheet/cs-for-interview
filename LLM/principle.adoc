@@ -115,7 +115,7 @@ Multi-head Attention = 여러 초점의 조합
 사이클 있음 (Closed Manifold)
 
 타원(닫힌 곡선)을 직선으로 "펼치려면"?
-→ 불가능 (위상 변화 필요)
+→ 불가능 (위상 변화 필요) // Phase임 Topology 위상과 다름
 
 대신:
 → 주기성을 유지하며 저차원 투영
